@@ -3,8 +3,8 @@
         "ciudad":"luque",
         "temperatura": "13.47°C",
         "velocidad": "1.54m/s",
-        "Humedad": "56",
-        "Descripcion": "clear sky"
+        "humedad": "56",
+        "descripcion": "clear sky"
     },
     {
         "ciudad":"aregua",

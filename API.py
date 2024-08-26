@@ -8,18 +8,23 @@ def verificar_clima(ciudad):
 
     respuesta = requests.get(url)
 
-    data = respuesta.json()
+    if respuesta.status_code == 200:
+        data = respuesta.json()
 
-    temperatura = data["main"]["temp"]
-    velocidad = data["wind"]["speed"]
-    humedad= data["main"]["humidity"]
-    descripcion = data["weather"][0]["description"]
-    datos_para_envio ={
-        'ciudad':ciudad,
-        'temperatura': temperatura + "c",
-        'velocidad': velocidad+"m/s",
-        'humedad': humedad,
-        'descripcion': descripcion,
-    }
-    json_manager.write_json(datos_para_envio)
-    
+        temperatura = data["main"]["temp"]
+        velocidad = data["wind"]["speed"]
+        humedad = data["main"]["humidity"]
+        descripcion = data["weather"][0]["description"]
+
+        datos_para_envio = {
+            'ciudad': ciudad,
+            'temperatura': f"{temperatura}°C",
+            'velocidad': f"{velocidad} m/s",
+            'humedad': humedad,
+            'descripcion': descripcion,
+        }
+        
+        json_manager.write_json(datos_para_envio)
+        print(f"Datos del clima para {ciudad} guardados exitosamente.")
+    else:
+        print("Error al obtener datos de la API. Por favor, verifica el nombre de la ciudad o la conexión a Internet.")

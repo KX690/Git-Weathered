@@ -9,5 +9,8 @@ def read_json():
         datos = json.load(archivo)
     return datos
 
-def write_json():
-    pass
+def write_json(nuevo_dato):
+    datos = read_json()
+    datos.append(nuevo_dato)
+    with open('datos.json', 'a+') as archivo:
+        json.dump(datos, archivo, indent=4)
