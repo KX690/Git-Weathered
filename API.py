@@ -18,7 +18,7 @@ def verificar_clima(ciudad):
 
         datos_para_envio = {
             'ciudad': ciudad,
-            'temperatura': f"{temperatura}°C",
+            'temperatura': f"{temperatura} Celcius",
             'velocidad': f"{velocidad} m/s",
             'humedad': humedad,
             'descripcion': descripcion,

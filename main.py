@@ -8,10 +8,10 @@ def cli():
 
 
 @cli.command()
-@cli.option('--ciudad', required=True, help='ciudad donde desea saber el estado admosferico')
-def new(ctx, ciudad):
+@click.option('--ciudad', required=True, help='ciudad donde desea saber el estado admosferico')
+def clima( ciudad):
     if not ciudad:
-        ctx.fail('Debe elegir una ciudad para poder ejecutar')
+        print('Debe elegir una ciudad para poder ejecutar')
     else:
         datos = json_manager.read_json()
         
@@ -24,7 +24,11 @@ def datos_atm():
     for dato in datos:
         print(dato)
     
-
+    
+@cli.command()
+@click.option('--ciudad', required=True, help='Ciudad cuyo dato desea borrar')
+def borrar(ciudad):
+    json_manager.delete_json(ciudad)
 
 
 

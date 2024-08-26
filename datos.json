@@ -1,16 +1,30 @@
 [
     {
-        "ciudad":"luque",
-        "temperatura": "13.47°C",
-        "velocidad": "1.54m/s",
-        "humedad": "56",
+        "ciudad": "aregua",
+        "temperatura": "12.38 Celcius",
+        "velocidad": "1.54 m/s",
+        "humedad": 66,
         "descripcion": "clear sky"
     },
     {
-        "ciudad":"aregua",
-        "temperatura": "12.38°C",
-        "velocidad": "1.54m/s",
-        "humedad": "66",
+        "ciudad": "encarnacion",
+        "temperatura": "9.29 Celcius",
+        "velocidad": "2.57 m/s",
+        "humedad": 76,
+        "descripcion": "clear sky"
+    },
+    {
+        "ciudad": "luque",
+        "temperatura": "24.52 Celcius ",
+        "velocidad": "2.15 m/s",
+        "humedad": 65,
+        "descripcion": "clear sky"
+    },
+    {
+        "ciudad": "Paraguari",
+        "temperatura": "7.55 Celcius",
+        "velocidad": "1.51 m/s",
+        "humedad": 69,
         "descripcion": "clear sky"
     }
 ]
