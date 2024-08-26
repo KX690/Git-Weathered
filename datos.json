@@ -1,0 +1,16 @@
+[
+    {
+        "ciudad":"luque",
+        "temperatura": "13.47°C",
+        "velocidad": "1.54m/s",
+        "Humedad": "56",
+        "Descripcion": "clear sky"
+    },
+    {
+        "ciudad":"aregua",
+        "temperatura": "12.38°C",
+        "velocidad": "1.54m/s",
+        "humedad": "66",
+        "descripcion": "clear sky"
+    }
+]
