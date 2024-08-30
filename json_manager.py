@@ -25,3 +25,20 @@ def delete_json(ciudad):
         print(f"Datos de la ciudad '{ciudad}' eliminados exitosamente.")
     else:
         print(f"No se encontraron datos para la ciudad '{ciudad}'.")
+
+def update_json(ciudad, temperatura=None, velocidad=None, humedad=None, descripcion=None):
+    datos = read_json()
+    for dato in datos:
+        if dato['ciudad'].lower() == ciudad.lower():
+            if temperatura:
+                dato['temperatura'] = f"{temperatura} Celcius"
+            if velocidad:
+                dato['velocidad'] = f"{velocidad} m/s"
+            if humedad:
+                dato['humedad'] = humedad
+            if descripcion:
+                dato['descripcion'] = descripcion
+            break
+    with open('datos.json', 'w') as archivo:
+        json.dump(datos, archivo, indent=4)
+    print(f"Datos de la ciudad '{ciudad}' actualizados exitosamente.")

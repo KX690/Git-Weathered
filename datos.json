@@ -15,8 +15,8 @@
     },
     {
         "ciudad": "luque",
-        "temperatura": "24.52 Celcius ",
-        "velocidad": "2.15 m/s",
+        "temperatura": "30 Celcius",
+        "velocidad": "3.5 m/s",
         "humedad": 65,
         "descripcion": "clear sky"
     },
