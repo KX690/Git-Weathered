@@ -1,5 +1,8 @@
 import click
 import json_manager
+import json
+import csv
+import sys
 from API import verificar_clima
 
 
@@ -10,22 +13,38 @@ def cli():
 
 @cli.command()
 @click.option(
-    "--ciudad", required=True, help="ciudad donde desea saber el estado admosferico"
+    "--ciudad", required=True, help="Ciudad donde desea saber el estado atmosférico"
 )
 def clima(ciudad):
     if not ciudad:
         print("Debe elegir una ciudad para poder ejecutar")
     else:
-        datos = json_manager.read_json()
-
         verificar_clima(ciudad)
 
 
 @cli.command()
-def datos_atm():
+@click.option(
+    "--formato",
+    default="texto",
+    type=click.Choice(["texto", "json", "csv"]),
+    help="Formato de salida: texto, json, o csv",
+)
+def datos_atm(formato):
     datos = json_manager.read_json()
-    for dato in datos:
-        print(dato)
+
+    if formato == "json":
+        print(json.dumps(datos, indent=4))
+    elif formato == "csv":
+        if datos:
+            writer = csv.writer(sys.stdout)
+            writer.writerow(datos[0].keys())
+            for dato in datos:
+                writer.writerow(dato.values())
+    else:
+        for dato in datos:
+            for key, value in dato.items():
+                print(f"{key}: {value}")
+            print("----------------------------")
 
 
 @cli.command()

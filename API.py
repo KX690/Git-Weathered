@@ -27,7 +27,9 @@ def verificar_clima(ciudad):
 
         json_manager.write_json(datos_para_envio)
         print(f"Datos del clima para {ciudad} guardados exitosamente.")
+        return datos_para_envio
     else:
         print(
             "Error al obtener datos de la API. Por favor, verifica el nombre de la ciudad o la conexión a Internet."
         )
+        return {}
